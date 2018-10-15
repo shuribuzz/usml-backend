@@ -1,0 +1,5 @@
+oop:
+  build: .
+  command: python3 -u oop.py
+  volumes:
+    - ./oop:/oop

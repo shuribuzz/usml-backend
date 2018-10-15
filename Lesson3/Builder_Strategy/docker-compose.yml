@@ -1,0 +1,5 @@
+pattern1:
+  build: .
+  command: python3 -u competition.py
+  volumes:
+    - ./pattern1:/pattern1

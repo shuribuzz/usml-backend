@@ -1,0 +1,5 @@
+pattern2:
+  build: .
+  command: python3 -u pattern2.py
+  volumes:
+    - ./pattern2:/pattern2
