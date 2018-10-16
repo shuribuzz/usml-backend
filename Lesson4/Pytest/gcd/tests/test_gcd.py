@@ -1,22 +1,17 @@
 import pytest
 from gcd import gcd
 
-@pytest.mark.parametrize("test_input,expected", [
-    ("gcd(0, 1)", 1),
-    ("gcd(1, 0)", 1),
-    ("gcd(6, 6)", 6),
-    ("gcd(2, 1)" or "gcd(1 , 5)", 1),
-    ("gcd(2, 4)", 2),
-    ("gcd(2, 5)", 1),
-    ("gcd(5, 2)", 2),
-    ("gcd(7, 9)", 1),
+@pytest.mark.parametrize("test_args,expected", [
+    ((0,1), 1), ((1,0), 1), ((6,6), 6),
+    ((1,50), 1), ((25,1), 1), ((2,4), 2),
+    ((2,5), 1), ((5,2), 1), ((7,9), 1)
 ])
+def test_some(test_args, expected):
+    assert gcd(*test_args) == expected
 
-def test_eval(test_input, expected):
-    assert eval(test_input) == expected
+def test_some1(test_args, expected):
+    assert gcd(*test_args) != expected
 
-def test_exeption():
+def test_input_type_exeption():
     with pytest.raises(TypeError):
         gcd('23', 7)
-
-
