@@ -9,9 +9,6 @@ from gcd import gcd
 def test_some(test_args, expected):
     assert gcd(*test_args) == expected
 
-def test_some1(test_args, expected):
-    assert gcd(*test_args) != expected
-
 def test_input_type_exeption():
     with pytest.raises(TypeError):
         gcd('23', 7)
