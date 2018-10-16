@@ -6,7 +6,7 @@ from gcd import gcd
     ((1,50), 1), ((25,1), 1), ((2,4), 2),
     ((2,5), 1), ((5,2), 1), ((7,9), 1)
 ])
-def test_some(test_args, expected):
+def test_equal(test_args, expected):
     assert gcd(*test_args) == expected
 
 def test_input_type_exeption():
