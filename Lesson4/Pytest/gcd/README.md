@@ -1,0 +1,4 @@
+# Pytest
+запуск:
+
+pytest -v
