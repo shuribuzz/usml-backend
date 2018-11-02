@@ -13,17 +13,21 @@ def get_sync():
     t1 = time()
     print("Sync poll took %s seconds" % (t1-t0))
 
+
 async def get_async():
-  t0 = time() 
-  async with aiohttp.ClientSession() as session:
-    for site in SITES:
-      async with session.get('https://' + site) as resp: 
-        print(resp.status)
-  t1 = time()
-  print("Async poll took %s seconds" % (t1-t0))
+    t0 = time()
+    response_list = []
+    async with aiohttp.ClientSession() as session:
+        for site in SITES:
+            response_list.append(session.get(('https://' + site)))
+        for response in await asyncio.gather(*response_list):
+            print(response.status)
+    t1 = time()
+    print("Async poll took %s seconds" % (t1 - t0))
 
 
 get_sync()
 
 loop = asyncio.get_event_loop()
 loop.run_until_complete(get_async())
+loop.close()
