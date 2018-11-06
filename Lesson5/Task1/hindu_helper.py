@@ -2,6 +2,7 @@ import asyncio
 from damn_people import ret_people
 
 list_people = ret_people()
+#list_people = {'hum1': 'Pain', 'hum2': 'Pain', 'hum3': 'Pain', 'hum4': 'Pain'}
 tasks = []
 
 async def teambuild(list_people):
@@ -26,19 +27,19 @@ async def teambuild(list_people):
     await asyncio.wait(tasks)
 
 async def healer_pain():
-    await asyncio.sleep(20)
+    await asyncio.sleep(5)
     print('relieved of pain!')
 
 async def healer_thirst():
-    await asyncio.sleep(20)
+    await asyncio.sleep(5)
     print('relieved of thirst!')
 
 async def healer_insomnia():
-    await asyncio.sleep(20)
+    await asyncio.sleep(5)
     print('relieved of insomnia!')
 
 async def healer_deadline():
-    await asyncio.sleep(20)
+    await asyncio.sleep(5)
     print('relieved of deadline!')
 
 ioloop = asyncio.get_event_loop()
